@@ -2,7 +2,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-# 🔧 Health check route (optional but useful)
+# Health check route (optional but useful)
 @app.route('/')
 def home():
     return "Cloud VM is running!"
@@ -31,4 +31,4 @@ def process():
 
 # Run server
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=80)

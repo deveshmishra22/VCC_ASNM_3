@@ -3,7 +3,7 @@ import requests
 import time
 
 # CONFIGURATION
-CLOUD_URL = "http://<YOUR_GCP_IP>:5000/process"  # Replace with your GCP VM IP
+CLOUD_URL = "http://34.131.188.242/process"
 THRESHOLD = 75  # CPU threshold %
 
 # Local task
@@ -21,7 +21,7 @@ while True:
         result = heavy_task(10)
         print("Result:", result)
     else:
-        print("☁️ Offloading to cloud")
+        print(" Offloading to cloud")
         try:
             response = requests.post(
                 CLOUD_URL,
