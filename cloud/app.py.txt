@@ -1,0 +1,34 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+# 🔧 Health check route (optional but useful)
+@app.route('/')
+def home():
+    return "Cloud VM is running!"
+
+# Main processing endpoint
+@app.route('/process', methods=['POST'])
+def process():
+    try:
+        data = request.json.get('data')
+
+        # Simulate heavy computation
+        result = data * data
+
+        return jsonify({
+            "status": "success",
+            "input": data,
+            "result": result,
+            "executed_on": "cloud"
+        })
+
+    except Exception as e:
+        return jsonify({
+            "status": "error",
+            "message": str(e)
+        })
+
+# Run server
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
